@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework 9</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <style>
+      .item {
+        /* display: flex; */
+        list-style: none;
+      }
+
+      .item:hover .link,
+      .item:focus .link {
+        background-color: blue;
+      }
+
+      .link {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: #ffffff;
+        padding: 10px 32px;
+        margin: 10px;
+        background-color: #2196f3;
+        border-radius: 5px;
+        width: 210px;
+        transition: all 500ms linear;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="item">
+        <a class="link" href="./partials/01-color-switcher.html"
+          >Color switcher</a
+        >
+      </li>
+      <li class="item">
+        <a class="link" href="./partials/02-timer.html">Countdown timer</a>
+      </li>
+      <li class="item">
+        <a class="link" href="./partials/03-promises.html">Promise generator</a>
+      </li>
+    </ul>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
