@@ -24,7 +24,6 @@ const options = {
     const currentTime = new Date();
     refs.selectedDate = selectedDates[0];
 
-    // let currentTime = new Date();
     if (refs.selectedDate.getTime() < currentTime) {
       if (!refs.button.hasAttribute('disabled')) {
         refs.button.setAttribute('disabled', '');
@@ -38,6 +37,8 @@ const options = {
     }
   },
 };
+
+flatpickr(refs.input, options);
 
 const timer = {
   intervalId: null,
@@ -53,26 +54,30 @@ const timer = {
         deltaTime
       );
 
-      if (deltaTime < 0) {
+      if (deltaTime < 1000) {
+        refs.days.textContent = '00';
+        refs.hours.textContent = '00';
+        refs.minutes.textContent = '00';
+        refs.seconds.textContent = '00';
         clearInterval(timerId);
       }
 
-      const { days, hours, minutes, seconds } = convertMs(deltaTime);
-      refs.days.textContent = `${days}`;
-      refs.hours.textContent = `${hours}`;
-      refs.minutes.textContent = `${minutes}`;
-      refs.seconds.textContent = `${seconds}`;
-      console.log(`${days}::${hours}::${minutes}::${seconds}`);
+      updateTimer(convertMs(deltaTime));
+      // console.log(`${days}::${hours}::${minutes}::${seconds}`);
     }, 1000);
   },
 };
 
-const fp = flatpickr(refs.input, options);
 refs.button.addEventListener('click', onStartButtonClick);
 
 function onStartButtonClick() {
   timer.start();
 }
 
-// console.log(options.selectedDate);
-// console.log('defaultDate', options.defaultDate);
+function updateTimer({ days, hours, minutes, seconds }) {
+  refs.days.textContent = `${days}`;
+  refs.hours.textContent = `${hours}`;
+  refs.minutes.textContent = `${minutes}`;
+  refs.seconds.textContent = `${seconds}`;
+  console.log(`${days}::${hours}::${minutes}::${seconds}`);
+}
