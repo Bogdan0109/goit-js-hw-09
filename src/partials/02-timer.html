@@ -5,29 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown timer</title>
     <link rel="stylesheet" href="../sass/index.scss" />
+    <style>
+      #datetime-picker {
+        font-size: 18px;
+      }
+
+      button[data-start] {
+        font-size: 18px;
+      }
+
+      .timer {
+        display: flex;
+        margin-top: 15px;
+        gap: 25px;
+      }
+      .field {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .value {
+        font-size: 30px;
+      }
+      .label {
+        font-size: 15px;
+      }
+    </style>
   </head>
   <body>
     <p><a href="../index.html">Go back</a></p>
 
     <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <button type="button" data-start disabled>Start</button>
 
     <div class="timer">
       <div class="field">
         <span class="value" data-days>00</span>
-        <span class="label">Days</span>
+        <span class="label">DAYS</span>
       </div>
       <div class="field">
         <span class="value" data-hours>00</span>
-        <span class="label">Hours</span>
+        <span class="label">HOURS</span>
       </div>
       <div class="field">
         <span class="value" data-minutes>00</span>
-        <span class="label">Minutes</span>
+        <span class="label">MINUTES</span>
       </div>
       <div class="field">
         <span class="value" data-seconds>00</span>
-        <span class="label">Seconds</span>
+        <span class="label">SECONDS</span>
       </div>
     </div>
 
